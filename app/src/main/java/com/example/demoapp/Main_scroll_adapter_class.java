@@ -16,16 +16,32 @@ import java.util.Collections;
 import java.util.List;
 
 public class Main_scroll_adapter_class  extends RecyclerView.Adapter<Main_scroll_adapter_class.ViewHolder> {
-    List<Main_recycle_model_class> content_names=new ArrayList<>();
+    List<String> content_names=new ArrayList<>();
     List<String> names=new ArrayList<>();
     List<String> drama_items=new ArrayList<>();
+    List<String> horror=new ArrayList<>();
+    List<String> anime=new ArrayList<>();
+    List<String> comedy=new ArrayList<>();
+    List<String> adventure=new ArrayList<>();
+    List<String> music=new ArrayList<>();
+    List<String> crime=new ArrayList<>();
+    List<String> romance=new ArrayList<>();
+    List<String> war=new ArrayList<>();
     Context ctx;
 
 
-    public Main_scroll_adapter_class(List<Main_recycle_model_class> content_names, List<String> names, List<String> drama_items, Context ctx) {
+    public Main_scroll_adapter_class(List<String> content_names, List<String> names, List<String> drama_items, List<String> horror, List<String> anime, List<String> comedy, List<String> adventure, List<String> music, List<String> crime, List<String> romance, List<String> war, Context ctx) {
         this.content_names = content_names;
         this.names = names;
         this.drama_items = drama_items;
+        this.horror = horror;
+        this.anime = anime;
+        this.comedy = comedy;
+        this.adventure = adventure;
+        this.music = music;
+        this.crime = crime;
+        this.romance = romance;
+        this.war = war;
         this.ctx = ctx;
     }
 
@@ -47,16 +63,64 @@ public class Main_scroll_adapter_class  extends RecyclerView.Adapter<Main_scroll
         holder.recyclerView.setLayoutManager(new LinearLayoutManager(ctx,LinearLayoutManager.HORIZONTAL,false));
         try {
 
-            if(content_names.get(position).getGenres().get(0).toLowerCase().equals("action")){
-                holder.textView_catry_name.setText(content_names.get(position).getGenres().get(0));
+            if(content_names.get(position).toLowerCase().equals("action")){
+                holder.textView_catry_name.setText(content_names.get(position));
                 inner_content_adapter adapter = new inner_content_adapter(names,ctx);
                 holder.recyclerView.setAdapter(adapter);
 
 
             }
-           else if(content_names.get(position).getGenres().get(0).toLowerCase().equals("drama")){
-                holder.textView_catry_name.setText(content_names.get(position).getGenres().get(0));
+           else if(content_names.get(position).toLowerCase().equals("drama")){
+                holder.textView_catry_name.setText(content_names.get(position));
                 inner_content_adapter adapter = new inner_content_adapter(drama_items,ctx);
+                holder.recyclerView.setAdapter(adapter);
+
+            }
+            else if(content_names.get(position).toLowerCase().equals("horror")){
+                holder.textView_catry_name.setText(content_names.get(position));
+                inner_content_adapter adapter = new inner_content_adapter(horror,ctx);
+                holder.recyclerView.setAdapter(adapter);
+
+            }
+            else if(content_names.get(position).toLowerCase().equals("anime")){
+                holder.textView_catry_name.setText(content_names.get(position));
+                inner_content_adapter adapter = new inner_content_adapter(anime,ctx);
+                holder.recyclerView.setAdapter(adapter);
+
+            }
+            else if(content_names.get(position).toLowerCase().equals("comedy")){
+                holder.textView_catry_name.setText(content_names.get(position));
+                inner_content_adapter adapter = new inner_content_adapter(comedy,ctx);
+                holder.recyclerView.setAdapter(adapter);
+
+            }
+            else if(content_names.get(position).toLowerCase().equals("adventure")){
+                holder.textView_catry_name.setText(content_names.get(position));
+                inner_content_adapter adapter = new inner_content_adapter(adventure,ctx);
+                holder.recyclerView.setAdapter(adapter);
+
+            }
+            else if(content_names.get(position).toLowerCase().equals("music")){
+                holder.textView_catry_name.setText(content_names.get(position));
+                inner_content_adapter adapter = new inner_content_adapter(music,ctx);
+                holder.recyclerView.setAdapter(adapter);
+
+            }
+            else if(content_names.get(position).toLowerCase().equals("crime")){
+                holder.textView_catry_name.setText(content_names.get(position));
+                inner_content_adapter adapter = new inner_content_adapter(crime,ctx);
+                holder.recyclerView.setAdapter(adapter);
+
+            }
+            else if(content_names.get(position).toLowerCase().equals("romance")){
+                holder.textView_catry_name.setText(content_names.get(position));
+                inner_content_adapter adapter = new inner_content_adapter(romance,ctx);
+                holder.recyclerView.setAdapter(adapter);
+
+            }
+            else if(content_names.get(position).toLowerCase().equals("war")){
+                holder.textView_catry_name.setText(content_names.get(position));
+                inner_content_adapter adapter = new inner_content_adapter(war,ctx);
                 holder.recyclerView.setAdapter(adapter);
 
             }

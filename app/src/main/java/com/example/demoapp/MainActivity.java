@@ -41,20 +41,73 @@ public class MainActivity extends AppCompatActivity {
                    System.out.println("yess");
                    List<String> action_items=new ArrayList<>();
                    List<String> drama_items=new ArrayList<>();
+                   List<String> horror_items=new ArrayList<>();
+                   List<String> Anime_items=new ArrayList<>();
+                   List<String> Comedy_items=new ArrayList<>();
+                   List<String> Adventure_items=new ArrayList<>();
+                   List<String> Music_items=new ArrayList<>();
+                   List<String> crime_items=new ArrayList<>();
+                   List<String> Romance_items=new ArrayList<>();
+                   List<String> war_items=new ArrayList<>();
                    List<String> names=new ArrayList<>();
                    for (Main_recycle_model_class ls: response.body()){
                        try {
-                           if(ls.getGenres().get(0).toLowerCase().equals("action")){
-                               action_items.add(ls.getImage().getMedium());
+                           if(!names.contains(ls.getGenres().get(0))){
+                               names.add(ls.getGenres().get(0));
+
                            }
-                           if (ls.getGenres().get(0).toLowerCase().equals("drama")){
-                               drama_items.add(ls.getImage().getMedium());
-                           }
+
+
                        }catch (Exception e){
 
                        }
                    }
-                   Main_scroll_adapter_class adapter = new Main_scroll_adapter_class(response.body(),action_items,drama_items,MainActivity.this);
+
+                   for (String nn:names){
+                       System.out.println(nn);
+                       for (Main_recycle_model_class lss :response.body()){
+                           try {
+                               if(lss.getGenres().get(0).toLowerCase().equals("action")){
+                                   action_items.add(lss.getImage().getMedium());
+                               }
+                               if (lss.getGenres().get(0).toLowerCase().equals("drama")){
+                                   drama_items.add(lss.getImage().getMedium());
+                               }
+                               if (lss.getGenres().get(0).toLowerCase().equals("horror")){
+                                   horror_items.add(lss.getImage().getMedium());
+                               }
+                               if (lss.getGenres().get(0).toLowerCase().equals("anime")){
+                                   Anime_items.add(lss.getImage().getMedium());
+                               }
+                               if (lss.getGenres().get(0).toLowerCase().equals("comedy")){
+                                   Comedy_items.add(lss.getImage().getMedium());
+                               }
+                               if (lss.getGenres().get(0).toLowerCase().equals("adventure")){
+                                   Adventure_items.add(lss.getImage().getMedium());
+                               }
+                               if (lss.getGenres().get(0).toLowerCase().equals("music")){
+                                   Music_items.add(lss.getImage().getMedium());
+                               }
+                               if (lss.getGenres().get(0).toLowerCase().equals("crime")){
+                                   crime_items.add(lss.getImage().getMedium());
+                               }
+                               if (lss.getGenres().get(0).toLowerCase().equals("romance")){
+                                   Romance_items.add(lss.getImage().getMedium());
+                               }
+                               if (lss.getGenres().get(0).toLowerCase().equals("war")){
+                                   war_items.add(lss.getImage().getMedium());
+                               }
+                           }catch (Exception ee){
+
+                           }
+
+
+                       }
+
+                   }
+
+
+                   Main_scroll_adapter_class adapter = new Main_scroll_adapter_class(names,action_items,drama_items,horror_items,Anime_items,Comedy_items,Adventure_items,Music_items,crime_items,Romance_items,war_items,MainActivity.this);
                    recyclerView.setAdapter(adapter);
                }
 
